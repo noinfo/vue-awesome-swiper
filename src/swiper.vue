@@ -88,7 +88,9 @@
         },
         methods: {
             onSlideChangeEnd: function (args) {
-                this.$emit('changeActiveSlide', this.swiper.realIndex);
+                if(this.swiper){
+                    this.$emit('changeActiveSlide', this.swiper.realIndex);
+                }
                 // call callback from props
                 if (this.options.hasOwnProperty('onSlideChangeEnd') && typeof this.options.onSlideChangeEnd === 'function') {
                     if (args) {
